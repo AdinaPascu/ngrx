@@ -1,0 +1,24 @@
+<div class="card-container">
+  <mat-card>
+    <mat-card-title>Sign In</mat-card-title>
+    <mat-card-content>
+      <div *ngIf="error" class="error">{{error}}</div>
+      <form *ngIf="!loading" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+        <div fxLayout="column" fxLayoutAlign="start stretch">
+          <mat-form-field>
+            <input matInput required placeholder="Email Address" autocorrect="off" autocapitalize="off" spellcheck="off" formControlName="email">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput required type="password" placeholder="Password" autocomplete="off" autocorrect="off" autocapitalize="off"
+              spellcheck="off" formControlName="password">
+          </mat-form-field>
+          <button mat-raised-button color="accent" [disabled]="form.invalid" type="submit">Sign In</button>
+          <a mat-button [routerLink]="['/sign-up']">Sign Up with Email</a>
+        </div>
+      </form>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <mat-spinner *ngIf="loading"></mat-spinner>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

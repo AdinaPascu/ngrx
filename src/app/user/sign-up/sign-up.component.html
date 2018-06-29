@@ -1,0 +1,31 @@
+<div class="card-container">
+  <div fxFlex="90%" fxFlex.md="50%" fxFlex.lg="40%">
+    <mat-card>
+      <mat-card-title>Sign Up</mat-card-title>
+      <mat-card-content>
+        <div *ngIf="error" class="error">{{error}}</div>
+        <form *ngIf="!loading" (ngSubmit)="onSubmit()" ngNativeValidate>
+          <div fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-form-field>
+              <input matInput required placeholder="First Name" [(ngModel)]="user.firstName" name="firstName" type="firstName" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput required placeholder="Last Name" [(ngModel)]="user.lastName" name="lastName" type="lastName" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput required placeholder="Email Address" [(ngModel)]="user.email" name="email" type="email" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput required type="password" placeholder="Password" [(ngModel)]="user.password" name="password" type="password"
+                autocomplete="off">
+            </mat-form-field>
+            <button mat-raised-button color="accent" type="submit">Sign Up</button>
+          </div>
+        </form>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <mat-spinner *ngIf="loading"></mat-spinner>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<p>
+  landing works!
+</p>
+<div>
+  <button mat-raised-button *ngIf="!isAuthenticated" [routerLink]="['/sign-in']">Sign In</button>
+  <div *ngIf="isAuthenticated">
+    <button mat-raised-button [matMenuTriggerFor]="menu">
+        <mat-icon svgIcon="person"></mat-icon>
+        <span class="firstName">{{user.firstName}}</span>
+        <span>&#x25BE;</span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item (click)="signOut()">Sign Out</button>
+    </mat-menu>
+  </div>
+</div>
